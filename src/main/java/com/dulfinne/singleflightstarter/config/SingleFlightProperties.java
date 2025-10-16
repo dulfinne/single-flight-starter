@@ -13,8 +13,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class SingleFlightProperties {
 
   /**
-   * Enables single flight feature, for java 21 dont-forget
-   * to override SingleFlightAspectBean with virtual executor
+   * Enables single flight feature,
+   * For java 21 don't forget to override
+   * SingleFlightAspect bean with virtual executor
    */
   private boolean enabled;
 

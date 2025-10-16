@@ -20,12 +20,13 @@ repositories {
 }
 
 val lombokVersion = "1.18.38"
-val configurationProcessorVersion = "3.5.4"
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-aop")
-  implementation("org.springframework.boot:spring-boot-configuration-processor:$configurationProcessorVersion")
-  compileOnly("org.projectlombok:lombok:$lombokVersion")
+
+  compileOnly("org.springframework.boot:spring-boot-configuration-processor")
+  compileOnly("org.projectlombok:lombok:${lombokVersion}")
+  annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
   annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 }
 
