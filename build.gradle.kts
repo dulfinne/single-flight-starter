@@ -2,6 +2,7 @@ plugins {
   java
   id("org.springframework.boot") version "3.5.4"
   id("io.spring.dependency-management") version "1.1.7"
+  id("maven-publish")
 }
 
 group = "com.dulfinne"
@@ -19,11 +20,11 @@ repositories {
 }
 
 val lombokVersion = "1.18.38"
+val configurationProcessorVersion = "3.5.4"
 
 dependencies {
   implementation("org.springframework.boot:spring-boot-starter-aop")
-  implementation("org.springframework.boot:spring-boot-configuration-processor")
-
+  implementation("org.springframework.boot:spring-boot-configuration-processor:$configurationProcessorVersion")
   compileOnly("org.projectlombok:lombok:$lombokVersion")
   annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 }
