@@ -1,6 +1,6 @@
 plugins {
   java
-  id("org.springframework.boot") version "3.5.6"
+  id("org.springframework.boot") version "3.5.4"
   id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -18,12 +18,20 @@ repositories {
   mavenCentral()
 }
 
+val lombokVersion = "1.18.38"
+
 dependencies {
-  implementation("org.springframework.boot:spring-boot-starter")
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
-  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+  implementation("org.springframework.boot:spring-boot-starter-aop")
+  implementation("org.springframework.boot:spring-boot-configuration-processor")
+
+  compileOnly("org.projectlombok:lombok:$lombokVersion")
+  annotationProcessor("org.projectlombok:lombok:$lombokVersion")
 }
 
-tasks.withType<Test> {
-  useJUnitPlatform()
+tasks.bootJar {
+  enabled = false
+}
+
+tasks.jar {
+  enabled = true
 }
