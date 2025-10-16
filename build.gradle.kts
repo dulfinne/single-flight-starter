@@ -36,3 +36,18 @@ tasks.bootJar {
 tasks.jar {
   enabled = true
 }
+
+publishing {
+  publications {
+    create<MavenPublication>("mavenJava") {
+      versionMapping {
+        usage("java-api") {
+          fromResolutionOf("runtimeClasspath")
+        }
+        usage("java-runtime") {
+          fromResolutionResult()
+        }
+      }
+    }
+  }
+}
