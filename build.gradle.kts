@@ -40,6 +40,12 @@ tasks.jar {
 publishing {
   publications {
     create<MavenPublication>("mavenJava") {
+      from(components["java"])
+
+      groupId = "com.dulfinne"
+      artifactId = "single-flight-starter"
+      version = "0.0.1"
+
       versionMapping {
         usage("java-api") {
           fromResolutionOf("runtimeClasspath")
